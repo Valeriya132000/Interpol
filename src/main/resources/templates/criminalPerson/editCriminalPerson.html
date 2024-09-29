@@ -1,0 +1,74 @@
+<div th:fragment="editCriminalPerson">
+    <div class="modal fade" th:id="'editInterpol'+${interpol.id}" tabindex="-1" th:aria-labelledby="'editInterpolLabel'+${interpol.id}" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form class="row g-3" action="#" th:action="@{/updateCriminalPerson}" th:object="${interpolDto}" th:method="PUT">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" th:id="'editInterpolLabel'+${interpol.id}">Изменение в базе интерпола</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Отменить"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <input type="hidden" class="form-control" id="idInterpol" th:value="${interpol.id}" th:name="id" >
+                        <div class="col-md-4">
+                            <label for="firstNameInterpol" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="firstNameInterpol" th:value="${interpol.criminalPerson.firstName}" th:name="criminalPerson.firstName">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="lastNameInterpol" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="lastNameInterpol" th:value="${interpol.criminalPerson.lastName}" th:name="criminalPerson.lastName">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="nickNameInterpol" class="form-label">Кличка</label>
+                            <input type="text" class="form-control" id="nickNameInterpol" th:value="${interpol.criminalPerson.nickName}" th:name="criminalPerson.nickName">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="growthInterpol" class="form-label">Рост</label>
+                            <input type="number" class="form-control" id="growthInterpol" th:value="${interpol.criminalPerson.growth}" th:name="criminalPerson.growth">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="hairColorInterpol" class="form-label">Цвет волос</label>
+                            <input type="text" class="form-control" id="hairColorInterpol" th:value="${interpol.criminalPerson.hairColor}" th:name="criminalPerson.hairColor">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="eyeColorInterpol" class="form-label">Цвет глаз</label>
+                            <input type="text" class="form-control" id="eyeColorInterpol" th:value="${interpol.criminalPerson.eyeColor}" th:name="criminalPerson.eyeColor">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="specialSingsInterpol" class="form-label">Особые приметы</label>
+                            <input type="text" class="form-control" id="specialSingsInterpol" th:value="${interpol.criminalPerson.specialSings}" th:name="criminalPerson.specialSings">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="nationalityInterpol" class="form-label">Национальность</label>
+                            <input type="text" class="form-control" id="nationalityInterpol" th:value="${interpol.criminalPerson.nationality}" th:name="criminalPerson.nationality">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="dateBirthInterpol" class="form-label">Дата рождения</label>
+                            <input type="date" class="form-control" id="dateBirthInterpol" th:value="${interpol.criminalPerson.dateBirth}" th:name="criminalPerson.dateBirth">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="placeBirthInterpol" class="form-label">Место рождения</label>
+                            <input type="text" class="form-control" id="placeBirthInterpol" th:value="${interpol.criminalPerson.placeBirth}" th:name="criminalPerson.placeBirth">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastResidenceInterpol" class="form-label">Последняя резиденция</label>
+                            <input type="text" class="form-control" id="lastResidenceInterpol" th:value="${interpol.criminalPerson.lastResidence}" th:name="criminalPerson.lastResidence">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="languagesInterpol" class="form-label">Языки</label>
+                            <input type="text" class="form-control" id="languagesInterpol" th:value="${interpol.criminalPerson.languages}" th:name="criminalPerson.languages">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="criminalProfessionInterpol" class="form-label">Криминальная профессия</label>
+                            <input type="text" class="form-control" id="criminalProfessionInterpol" th:value="${interpol.criminalPerson.criminalProfession}" th:name="criminalPerson.criminalProfession">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-primary">Изменить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

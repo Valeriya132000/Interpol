@@ -1,0 +1,39 @@
+<div th:fragment="editDeveloper">
+    <div class="modal fade" th:id="'editDeveloper'+${developer.id}" tabindex="-1" th:aria-labelledby="'editDeveloperLabel'+${developer.id}" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form class="row g-3" action="#" th:action="@{/updateDeveloperPerson}" th:object="${developerDto}" th:method="PUT">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" th:id="'editDeveloperLabel'+${developer.id}">Изменение в базе разработчиков</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Отменить"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <input type="hidden" class="form-control" id="idDeveloper" th:value="${developer.id}" th:name="id" >
+                        <div class="col-md-4">
+                            <label for="firstNameDeveloper" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="firstNameDeveloper" th:value="${developer.developerPerson.firstName}" th:name="developerPerson.firstName">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="lastNameDeveloper" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="lastNameDeveloper" th:value="${developer.developerPerson.lastName}" th:name="developerPerson.lastName">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="phoneDeveloper" class="form-label">Телефон разработчика</label>
+                            <input type="text" class="form-control" id="phoneDeveloper" th:value="${developer.developerPerson.phone}" placeholder="+0-000-000-00-00" th:name="developerPerson.phone">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="emailDeveloper" class="form-label">Адрес электронной почты</label>
+                            <input type="email" class="form-control" id="emailDeveloper" th:value="${developer.developerPerson.email}" placeholder="name@example.com" th:name="developerPerson.email">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-primary">Изменить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

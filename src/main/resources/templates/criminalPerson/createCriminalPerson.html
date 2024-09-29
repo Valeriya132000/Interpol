@@ -1,0 +1,73 @@
+<div th:fragment="createCriminalPerson">
+    <div class="modal fade" id="addInterpol" tabindex="-1" aria-labelledby="addInterpolLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form class="row g-3" action="#" th:action="@{/createCriminalPerson}" th:object="${criminalPersonDto}" method="POST">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addInterpolLabel">Добавление в базу интерпола</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Отменить"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <div class="col-md-4">
+                            <label for="firstNameInterpol" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="firstNameInterpol" th:field="*{firstName}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="lastNameInterpol" class="form-label">Фамилия</label>
+                            <input type="text" class="form-control" id="lastNameInterpol" th:field="*{lastName}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="nickNameInterpol" class="form-label">Кличка</label>
+                            <input type="text" class="form-control" id="nickNameInterpol" th:field="*{nickName}">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="growthInterpol" class="form-label">Рост</label>
+                            <input type="number" class="form-control" id="growthInterpol" th:field="*{growth}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="hairColorInterpol" class="form-label">Цвет волос</label>
+                            <input type="text" class="form-control" id="hairColorInterpol" th:field="*{hairColor}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="eyeColorInterpol" class="form-label">Цвет глаз</label>
+                            <input type="text" class="form-control" id="eyeColorInterpol" th:field="*{eyeColor}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="specialSingsInterpol" class="form-label">Особые приметы</label>
+                            <input type="text" class="form-control" id="specialSingsInterpol" th:field="*{specialSings}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="nationalityInterpol" class="form-label">Национальность</label>
+                            <input type="text" class="form-control" id="nationalityInterpol" th:field="*{nationality}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="dateBirthInterpol" class="form-label">Дата рождения</label>
+                            <input type="date" class="form-control" id="dateBirthInterpol" th:field="*{dateBirth}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="placeBirthInterpol" class="form-label">Место рождения</label>
+                            <input type="text" class="form-control" id="placeBirthInterpol" th:field="*{placeBirth}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastResidenceInterpol" class="form-label">Последняя резиденция</label>
+                            <input type="text" class="form-control" id="lastResidenceInterpol" th:field="*{lastResidence}">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="languagesInterpol" class="form-label">Языки</label>
+                            <input type="text" class="form-control" id="languagesInterpol" th:field="*{languages}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="criminalProfessionInterpol" class="form-label">Криминальная профессия</label>
+                            <input type="text" class="form-control" id="criminalProfessionInterpol" th:field="*{criminalProfession}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

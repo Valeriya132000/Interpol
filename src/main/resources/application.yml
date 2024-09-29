@@ -1,0 +1,27 @@
+server:
+  servlet:
+    context-path: /@pom.artifactId@/api
+  port: 8080
+
+spring:
+  application:
+    name: @pom.name@
+    version: 1.0
+    description: Сервис интерпол
+    swagger:
+      url: http://localhost:${server.port}${server.servlet.context-path}
+      server-description: Локальный сервер
+  datasource:
+    url: jdbc:postgresql://localhost:5432/interpol
+    username: postgres
+    password: example
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    locations: classpath:db.migration
+    schemas: public
+    enabled: true
+    placeholder-replacement: false
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

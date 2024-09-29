@@ -1,0 +1,26 @@
+<div th:fragment="editDescription">
+    <div class="modal fade" th:id="'editDescription'+${description.id}" tabindex="-1" th:aria-labelledby="'editDescriptionLabel'+${description.id}" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form class="row g-3" action="#" th:action="@{/updateDescription}" th:object="${descriptionDto}" th:method="PUT">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" th:id="'editDescriptionLabel'+${description.id}">Изменение в базе информации о программе</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Отменить"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <input type="hidden" class="form-control" id="idDescription" th:value="${description.id}" th:name="id" >
+                        <div class="col-md-6">
+                            <label for="descriptionAppDescription" class="form-label">Описание программы</label>
+                            <input type="text" class="form-control" id="descriptionAppDescription" th:value="${description.descriptionApp}" th:name="descriptionApp">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-primary">Изменить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

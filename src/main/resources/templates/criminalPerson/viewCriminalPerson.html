@@ -1,0 +1,114 @@
+<div th:fragment="viewCriminalPerson">
+    <h5>Информация о действующих лицах находящихся на учете у интерпола</h5>
+    <hr class="hr" />
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Кличка</th>
+            <th scope="col">Рост</th>
+            <th scope="col">Цвет волос</th>
+            <th scope="col">Цвет глаз</th>
+            <th scope="col">Особые приметы</th>
+            <th scope="col">Национальность</th>
+            <th scope="col">Дата рождения</th>
+            <th scope="col">Место рождения</th>
+            <th scope="col">Последняя резиденция</th>
+            <th scope="col">Языки</th>
+            <th scope="col">Криминальная профессия</th>
+            <th scope="col">Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="interpol:${interpolList}">
+            <td th:text="${interpol.id}"></td>
+            <td th:text="${interpol.criminalPerson.firstName}"></td>
+            <td th:text="${interpol.criminalPerson.lastName}"></td>
+            <td th:text="${interpol.criminalPerson.nickName}"></td>
+            <td th:text="${interpol.criminalPerson.growth}"></td>
+            <td th:text="${interpol.criminalPerson.hairColor}"></td>
+            <td th:text="${interpol.criminalPerson.eyeColor}"></td>
+            <td th:text="${interpol.criminalPerson.specialSings}"></td>
+            <td th:text="${interpol.criminalPerson.nationality}"></td>
+            <td th:text="${interpol.criminalPerson.dateBirth}"></td>
+            <td th:text="${interpol.criminalPerson.placeBirth}"></td>
+            <td th:text="${interpol.criminalPerson.lastResidence}"></td>
+            <td th:text="${interpol.criminalPerson.languages}"></td>
+            <td th:text="${interpol.criminalPerson.criminalProfession}"></td>
+            <td>
+                <div class="row g-3">
+                    <div class="col-auto">
+                        <!-- Кнопка-триггер модального окна изменения в базе интерпола -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#editInterpol'+${interpol.id}">Изменить</button>
+
+                        <!-- Модальное окно изменения в базе интерпола -->
+                        <div th:replace="/criminalPerson/editCriminalPerson :: editCriminalPerson"> </div>
+                    </div>
+
+                    <form class="col-auto" action="#" th:action="@{'/deleteCriminalPerson/{id}'(id=${interpol.id})}" th:method="DELETE">
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                    <form class="col-auto" action="#" th:action="@{'/archiveCriminalPerson/{id}'(id=${interpol.id})}" th:method="DELETE">
+                        <button type="submit" class="btn btn-success">В архив</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Фильтр по архиву -->
+    <form class="row g-2" action="#" th:action="@{/searchArchive}" th:object="${filterArchiveDto}" th:method="POST">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-secondary">Фильтр по архиву</button>
+        </div>
+        <div class="col-md-6">
+            <label for="inputArchiveFilter" class="visually-hidden">Фильтр</label>
+            <input type="text" class="form-control" id="inputArchiveFilter" placeholder="Строка поиска" th:field="*{searchString}">
+        </div>
+    </form>
+    <hr class="hr" />
+
+    <h5>Информация о лицах находящихся в архиве интерпола</h5>
+    <hr class="hr" />
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Кличка</th>
+            <th scope="col">Рост</th>
+            <th scope="col">Цвет волос</th>
+            <th scope="col">Цвет глаз</th>
+            <th scope="col">Особые приметы</th>
+            <th scope="col">Национальность</th>
+            <th scope="col">Дата рождения</th>
+            <th scope="col">Место рождения</th>
+            <th scope="col">Последняя резиденция</th>
+            <th scope="col">Языки</th>
+            <th scope="col">Криминальная профессия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="interpolArchive:${interpolArchiveList}">
+            <td th:text="${interpolArchive.id}"></td>
+            <td th:text="${interpolArchive.criminalPerson.firstName}"></td>
+            <td th:text="${interpolArchive.criminalPerson.lastName}"></td>
+            <td th:text="${interpolArchive.criminalPerson.nickName}"></td>
+            <td th:text="${interpolArchive.criminalPerson.growth}"></td>
+            <td th:text="${interpolArchive.criminalPerson.hairColor}"></td>
+            <td th:text="${interpolArchive.criminalPerson.eyeColor}"></td>
+            <td th:text="${interpolArchive.criminalPerson.specialSings}"></td>
+            <td th:text="${interpolArchive.criminalPerson.nationality}"></td>
+            <td th:text="${interpolArchive.criminalPerson.dateBirth}"></td>
+            <td th:text="${interpolArchive.criminalPerson.placeBirth}"></td>
+            <td th:text="${interpolArchive.criminalPerson.lastResidence}"></td>
+            <td th:text="${interpolArchive.criminalPerson.languages}"></td>
+            <td th:text="${interpolArchive.criminalPerson.criminalProfession}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

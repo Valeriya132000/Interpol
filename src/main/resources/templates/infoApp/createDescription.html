@@ -1,0 +1,25 @@
+<div th:fragment="createDescription">
+    <div class="modal fade" id="addDescription" tabindex="-1" aria-labelledby="addDescriptionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form class="row g-3" action="#" th:action="@{/createDescription}" th:object="${descriptionDto}" method="POST">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addDescriptionLabel">Добавление в базу информации о программе</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Отменить"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <div class="col-md-6">
+                            <label for="descriptionAppDescription" class="form-label">Описание программы</label>
+                            <input type="text" class="form-control" id="descriptionAppDescription" th:field="*{descriptionApp}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
